@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMove : MonoBehaviour
 {
@@ -24,6 +25,22 @@ public class playerMove : MonoBehaviour
 
         transform.Translate(xMovement, yMovement, 0);
 
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Goal")
+        {
+            Debug.Log("Area cleared");
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       //destroys player when it collides with car
+        if (collision.gameObject.tag == "Car")
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 }

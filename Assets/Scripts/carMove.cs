@@ -20,15 +20,11 @@ public class carMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //destroys car when it hits wall
         if (collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(collision.gameObject);
-        }
     }
-
-    //destroy player character when car collides
+    //Make a reset scene in unity, unity scene management              
 }
