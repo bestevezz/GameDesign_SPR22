@@ -62,7 +62,17 @@ public class GameManager : MonoBehaviour
         //}
 
         car.GetComponent<SpriteRenderer>().color = carColors[colorIndex];
-        
 
+        int directionModifier = 0;
+        //flips car for using a car sprite
+        if (index > 3)
+        {
+            directionModifier = -1;
+        }
+        else
+        {
+            directionModifier = 1;
+            car.GetComponent<SpriteRenderer>().flipX = true;
+        }
     }
 }
